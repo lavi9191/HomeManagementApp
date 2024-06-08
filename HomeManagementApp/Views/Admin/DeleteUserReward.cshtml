@@ -1,0 +1,51 @@
+﻿@model HomeManagementApp.Models.UserReward
+
+@{
+    ViewData["Title"] = "Usuń Nagrodę";
+}
+
+<h2>Usuń Nagrodę</h2>
+
+<h3>Jesteś pewien, że chcesz usunąć tę nagrodę?</h3>
+<div>
+    <h4>UserReward</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Użytkownik
+        </dt>
+        <dd class="col-sm-10">
+            @Model.User.UserName
+        </dd>
+        <dt class="col-sm-2">
+            Nazwa nagrody
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Reward.Name
+        </dd>
+        <dt class="col-sm-2">
+            Opis
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Reward.Description
+        </dd>
+        <dt class="col-sm-2">
+            Koszt
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Reward.Cost
+        </dd>
+        <dt class="col-sm-2">
+            Data Odbioru
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateReceived.ToString("yyyy-MM-dd")
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteUserRewardConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button> |
+        <a asp-action="UserRewards" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>

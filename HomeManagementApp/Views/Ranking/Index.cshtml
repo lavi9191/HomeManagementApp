@@ -1,0 +1,90 @@
+﻿@model HomeManagementApp.Models.RankingViewModel
+
+<div class="container">
+    <h2>Ranking</h2>
+
+    <ul class="nav nav-tabs" id="rankingTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="points-tab" data-bs-toggle="tab" href="#points" role="tab" aria-controls="points" aria-selected="true">Ranking Punktów</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tasks-tab" data-bs-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">Ranking Zadań</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="rewards-tab" data-bs-toggle="tab" href="#rewards" role="tab" aria-controls="rewards" aria-selected="false">Ranking Nagród</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="rankingTabsContent">
+        <div class="tab-pane fade show active" id="points" role="tabpanel" aria-labelledby="points-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Użytkownik</th>
+                        <th>Punkty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entry in Model.PointsRanking)
+                    {
+                        <tr>
+                            <td>@entry.UserName</td>
+                            <td>@entry.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Użytkownik</th>
+                        <th>Wykonane Zadania</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entry in Model.TasksRanking)
+                    {
+                        <tr>
+                            <td>@entry.UserName</td>
+                            <td>@entry.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="rewards" role="tabpanel" aria-labelledby="rewards-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Użytkownik</th>
+                        <th>Odebrane Nagrody</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entry in Model.RewardsRanking)
+                    {
+                        <tr>
+                            <td>@entry.UserName</td>
+                            <td>@entry.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var triggerTabList = [].slice.call(document.querySelectorAll('#rankingTabs a'))
+        triggerTabList.forEach(function (triggerEl) {
+            var tabTrigger = new bootstrap.Tab(triggerEl)
+
+            triggerEl.addEventListener('click', function (event) {
+                event.preventDefault()
+                tabTrigger.show()
+            })
+        })
+    </script>
+}

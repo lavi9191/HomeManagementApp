@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Panel administratora";
+}
+
+<h2>Panel administratora</h2>
+
+<p>
+    <a asp-action="ManageRewards" class="btn btn-primary">Zarządzaj nagrodami</a>
+    <a asp-action="ManageTasks" class="btn btn-primary">Zarządzaj zadaniami</a>
+    <a asp-action="ManageUsers" class="btn btn-primary">Zarządzaj użytkownikami</a>
+    <a asp-controller="Admin" asp-action="AssignRole" class="btn btn-primary">Nadawanie uprawnień</a>
+    <a asp-controller="Admin" asp-action="UserRewards" class="btn btn-primary">Zarządzaj odebranymi nagrodami</a>
+</p>

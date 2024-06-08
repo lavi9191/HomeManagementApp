@@ -1,0 +1,44 @@
+﻿@model HomeManagementApp.Models.UserTask
+
+@{
+    ViewData["Title"] = "Usuń zadanie";
+}
+
+<h1>Usuń</h1>
+<h3>Czy na pewno chcesz usunąć to zadanie?</h3>
+<div>
+    <h4>Zadanie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminTask)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminTask.Name) - @Html.DisplayFor(model => model.AdminTask.Points) pkt
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.CheckBoxFor(model => model.IsComplete, new { @disabled = "disabled" })
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>

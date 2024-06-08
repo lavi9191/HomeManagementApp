@@ -1,0 +1,31 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Statystyki aktywności";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Dzienna aktywność:</h3>
+    <ul>
+        @foreach (var activity in Model.DailyActivity)
+        {
+            <li>@activity.Date: Ukończone zadania: @activity.CompletedTasks, Nieukończone zadania: @activity.IncompleteTasks</li>
+        }
+    </ul>
+    <h3>Tygodniowa aktywność:</h3>
+    <ul>
+        @foreach (var activity in Model.WeeklyActivity)
+        {
+            <li>Tydzień @activity.Week @activity.Year: Ukończone zadania: @activity.CompletedTasks, Nieukończone zadania: @activity.IncompleteTasks</li>
+        }
+    </ul>
+    <h3>Miesięczna aktywność:</h3>
+    <ul>
+        @foreach (var activity in Model.MonthlyActivity)
+        {
+            <li>@activity.Month/@activity.Year: Ukończone zadania: @activity.CompletedTasks, Nieukończone zadania: @activity.IncompleteTasks</li>
+        }
+    </ul>
+</div>

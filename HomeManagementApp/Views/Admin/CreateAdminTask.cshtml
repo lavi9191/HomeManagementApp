@@ -1,0 +1,25 @@
+﻿@model HomeManagementApp.Models.AdminTask
+
+@{
+    ViewData["Title"] = "Stwórz zadanie";
+}
+
+<h2>Stwórz zadanie</h2>
+
+<form asp-action="CreateAdminTask">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Nazwa zadania</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Points" class="control-label">Punkty za wykonanie</label>
+        <input asp-for="Points" class="form-control" />
+        <span asp-validation-for="Points" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Stwórz</button>
+</form>
+
+<div>
+    <a asp-action="ManageTasks">Powrót do listy zadań</a>
+</div>

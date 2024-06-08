@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Strona główna";
+}
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>System zarządzania zadaniami domowymi</h1><br><br><br><br>
+        <p>Wybierz jedną z poniższych opcji.</p>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="feature-box-container">
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="images/zadania.png" alt="zadania Icon" class="mb-3 img-small">
+                <h3>Zadania domowe</h3>
+                <p>Przejdź do listy zadań.</p>
+                @Html.ActionLink("Zobacz zadania", "Index", "HomeTask", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="images/zakupy.png" alt="zakupy Icon" class="mb-3 img-small">
+                <h3>Lista zakupów</h3>
+                <p>Przejdź do lista zakupów.</p>
+                @Html.ActionLink("Zobacz listę zakupów", "Index", "ShoppingList", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="images/reminder.png" alt="reminder Icon" class="mb-3 img-small">
+                <h3>Przypomnienie</h3>
+                <p>Przejdź do listy przypomnień.</p>
+                @Html.ActionLink("Zobacz przypomnienia", "Index", "Reminder", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="images/nagroda.png" alt="nagroda Icon" class="mb-3 img-small">
+                <h3>Nagrody</h3>
+                <p>Przejdź do listy nagród.</p>
+                @Html.ActionLink("Zobacz nagrody", "Index", "Reward", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+</div>

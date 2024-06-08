@@ -1,0 +1,24 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Porównanie własnych statystyk";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Porównanie miesiąc do miesiąca:</h3>
+    <ul>
+        @foreach (var comparison in Model.MonthlyComparison)
+        {
+            <li>@comparison.Month/@comparison.Year: Ukończone zadania: @comparison.CompletedTasks, Nieukończone zadania: @comparison.IncompleteTasks, Zdobyte punkty: @comparison.PointsEarned pkt</li>
+        }
+    </ul>
+    <h3>Porównanie rok do roku:</h3>
+    <ul>
+        @foreach (var comparison in Model.YearlyComparison)
+        {
+            <li>Rok @comparison.Year: Ukończone zadania: @comparison.CompletedTasks, Nieukończone zadania: @comparison.IncompleteTasks, Zdobyte punkty: @comparison.PointsEarned pkt</li>
+        }
+    </ul>
+</div>

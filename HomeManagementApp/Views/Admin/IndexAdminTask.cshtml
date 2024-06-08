@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HomeManagementApp.Models.AdminTask>
+
+<h2>Zarządzanie zadaniami</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa zadania</th>
+            <th>Punkty</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Points</td>
+                <td>
+                    <a asp-action="EditAdminTask" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="DetailsAdminTask" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="DeleteAdminTask" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="CreateAdminTask">Stwórz nowe zadanie</a>
+</div>

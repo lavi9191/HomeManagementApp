@@ -1,0 +1,48 @@
+﻿@model HomeManagementApp.Models.UserTask
+
+@{
+    ViewData["Title"] = "Edytuj zadanie";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Zadanie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="AdminTaskId" class="control-label">Zadanie</label>
+                <select asp-for="AdminTaskId" class="form-control" asp-items="ViewBag.AdminTasks">
+                    <option value="">-- Wybierz zadanie --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DueDate" class="control-label">Termin wykonania</label>
+                <input asp-for="DueDate" class="form-control" type="date" />
+            </div>
+            <div class="form-group">
+                <label asp-for="IsComplete" class="control-label">Zakończone</label>
+                @Html.CheckBoxFor(model => model.IsComplete)
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Użytkownik</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users">
+                    <option value="">-- Wybierz użytkownika --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edytuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Powrót do listy</a>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

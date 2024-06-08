@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HomeManagementApp.Models.Reward>
+@{
+    ViewData["Title"] = "Nagrody";
+}
+
+<h2>Wybierz nagrodę</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Koszt</th>
+            <th>Akcja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cost)</td>
+                <td>
+                    <form asp-action="Redeem" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-primary">Wymień</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

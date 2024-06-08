@@ -1,0 +1,19 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Statystyki punktów";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Całkowita liczba zdobytych punktów: @Model.TotalPoints</h3>
+    <h3>Średnia liczba punktów za zadanie: @Model.AveragePoints</h3>
+    <h3>Punkty zdobyte w danym okresie:</h3>
+    <ul>
+        @foreach (var period in Model.PointsPerPeriod)
+        {
+            <li>@period.Period.Year-@period.Period.Month: @period.Points pkt</li>
+        }
+    </ul>
+</div>

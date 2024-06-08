@@ -1,0 +1,33 @@
+﻿@model HomeManagementApp.Models.AdminTask
+
+@{
+    ViewData["Title"] = "Usuń zadanie";
+}
+
+<h2>Usuń zadanie</h2>
+
+<h3>Czy na pewno chcesz usunąć to zadanie?</h3>
+<div>
+    <h4>Zadanie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteAdminTask">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button>
+        <a asp-action="ManageTasks" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>

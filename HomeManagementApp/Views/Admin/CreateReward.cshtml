@@ -1,0 +1,29 @@
+﻿@model HomeManagementApp.Models.Reward
+@{
+    ViewData["Title"] = "Dodaj nagrodę";
+}
+
+<h2>Dodaj nagrodę</h2>
+
+<form asp-action="CreateReward">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Nazwa</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Opis</label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cost" class="control-label">Koszt</label>
+        <input asp-for="Cost" class="form-control" />
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
+
+<div>
+    <a asp-action="ManageRewards" class="btn btn-secondary">Wróć do listy</a>
+</div>

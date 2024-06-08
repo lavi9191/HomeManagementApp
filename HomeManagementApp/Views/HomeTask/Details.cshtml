@@ -1,0 +1,42 @@
+﻿@model HomeManagementApp.Models.UserTask
+
+@{
+    ViewData["Title"] = "Szczegóły zadania";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Zadanie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminTask)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminTask.Name) - @Html.DisplayFor(model => model.AdminTask.Points) pkt
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.CheckBoxFor(model => model.IsComplete, new { @disabled = "disabled" })
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+    </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edytuj</a>
+        <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+    </div>
+</div>

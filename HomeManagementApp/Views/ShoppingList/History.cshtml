@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HomeManagementApp.Models.ShoppingList>
+
+@{
+    ViewData["Title"] = "Historia zakupów";
+}
+
+<h2>Historia zakupów</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Kategoria</th>
+            <th>Ilość</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ItemName</td>
+                <td>@item.Category</td>
+                <td>@item.Quantity</td>
+                <td>
+                    <form asp-action="AddToShoppingList" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-primary">Dodaj ponownie</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Powrót do listy zakupów</a>
+</div>

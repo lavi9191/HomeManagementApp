@@ -1,0 +1,38 @@
+﻿@model HomeManagementApp.Models.Reward
+@{
+    ViewData["Title"] = "Usuń nagrodę";
+}
+
+<h2>Usuń nagrodę</h2>
+
+<h3>Czy na pewno chcesz usunąć tę nagrodę?</h3>
+<div>
+    <h4>Reward</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nazwa
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Opis
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Koszt
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteReward">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button> |
+        <a asp-action="ManageRewards" class="btn btn-secondary">Wróć do listy</a>
+    </form>
+</div>

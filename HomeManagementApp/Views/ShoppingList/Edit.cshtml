@@ -1,0 +1,44 @@
+﻿@model HomeManagementApp.Models.ShoppingListViewModel
+
+@{
+    ViewData["Title"] = "Edytuj produkt";
+}
+
+<h2>Edytuj produkt</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="NewItem.Id" />
+    <div class="form-group">
+        <label asp-for="NewItem.ItemName">Nazwa</label>
+        <input type="text" class="form-control" asp-for="NewItem.ItemName" />
+        <span asp-validation-for="NewItem.ItemName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewItem.Quantity">Ilość</label>
+        <input type="number" class="form-control" asp-for="NewItem.Quantity" />
+        <span asp-validation-for="NewItem.Quantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewItem.Category">Kategoria</label>
+        <select asp-for="NewItem.Category" asp-items="Model.CategoryOptions" class="form-control"></select>
+        <span asp-validation-for="NewItem.Category" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox" asp-for="NewItem.IsPurchased" /> Kupione?
+        </label>
+        <span asp-validation-for="NewItem.IsPurchased" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Zapisz" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

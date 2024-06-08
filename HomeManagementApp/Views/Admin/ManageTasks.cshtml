@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HomeManagementApp.Models.AdminTask>
+@{
+    ViewData["Title"] = "Zarządzaj zadaniami";
+}
+
+<h2>Zarządzaj zadaniami</h2>
+
+<p>
+    <a asp-controller="Admin" asp-action="CreateAdminTask" class="btn btn-primary">Dodaj nowe zadanie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa zadania</th>
+            <th>Punkty</th>
+            <th>Akcja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Points)</td>
+                <td>
+                    <a asp-action="EditAdminTask" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="DetailsAdminTask" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="DeleteAdminTask" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

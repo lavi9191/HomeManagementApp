@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HomeManagementApp.Models.AppUser>
+@{
+    ViewData["Title"] = "Zarządzaj użytkownikami";
+}
+
+<h2>Zarządzaj użytkownikami</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa użytkownika</th>
+            <th>Email</th>
+            <th>Punkty</th>
+            <th>Akcja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => user.UserName)</td>
+                <td>@Html.DisplayFor(modelItem => user.Email)</td>
+                <td>@Html.DisplayFor(modelItem => user.Points)</td>
+                <td>
+                    <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-secondary">Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

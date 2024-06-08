@@ -1,0 +1,75 @@
+﻿@model HomeManagementApp.Models.ShoppingListViewModel
+
+@{
+    ViewData["Title"] = "Lista zakupów";
+}
+
+<h2>Lista zakupów</h2>
+
+<form method="get" asp-action="Index">
+    <div class="form-group">
+        <select asp-for="SelectedCategory" asp-items="Model.CategoryOptions" class="form-control">
+            <option value="">Wszystkie</option>
+        </select><br>
+        <input type="submit" value="Filtruj" class="btn btn-primary" />
+        <a asp-action="History" class="btn btn-info">Pokaż historię zakupów</a>
+        <a asp-action="Create" class="btn btn-success">Dodaj nowy produkt</a>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Kategoria</th>
+            <th>Ilość</th>
+            <th>Kupione</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingItems)
+        {
+            <tr class="@(item.IsPurchased ? "purchased" : "not-purchased")">
+                <td>@item.ItemName</td>
+                <td>@item.Category</td>
+                <td>@item.Quantity</td>
+                <td>
+                    <a href="javascript:void(0);" class="toggle-purchased" data-id="@item.Id">
+                        @(item.IsPurchased ? "Tak" : "Nie")
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.toggle-purchased').on('click', function () {
+                var link = $(this);
+                var itemId = link.data('id');
+
+                $.post('@Url.Action("TogglePurchased")', { id: itemId }, function (response) {
+                    if (response.success) {
+                        if (response.isPurchased) {
+                            link.text('Tak');
+                            link.closest('tr').removeClass('not-purchased').addClass('purchased');
+                        } else {
+                            link.text('Nie');
+                            link.closest('tr').removeClass('purchased').addClass('not-purchased');
+                        }
+                    } else {
+                        alert('Wystąpił błąd podczas zmiany statusu.');
+                    }
+                });
+            });
+        });
+    </script>
+}

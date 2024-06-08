@@ -1,0 +1,19 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Statystyki nagród";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Liczba odebranych nagród: @Model.TotalRewards</h3>
+    <h3>Punkty wydane na nagrody: @Model.PointsSpent</h3>
+    <h3>Lista nagród:</h3>
+    <ul>
+        @foreach (var reward in Model.RewardsList)
+        {
+            <li>@reward.Name - @reward.DateReceived.ToString("yyyy-MM-dd")</li>
+        }
+    </ul>
+</div>

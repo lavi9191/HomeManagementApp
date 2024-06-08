@@ -1,0 +1,35 @@
+﻿@model HomeManagementApp.Models.Reward
+@{
+    ViewData["Title"] = "Szczegóły nagrody";
+}
+
+<h2>Szczegóły nagrody</h2>
+
+<div>
+    <h4>Reward</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nazwa
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Opis
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Koszt
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditReward" asp-route-id="@Model.Id" class="btn btn-secondary">Edytuj</a> |
+    <a asp-action="ManageRewards" class="btn btn-secondary">Wróć do listy</a>
+</div>
