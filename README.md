@@ -11,13 +11,15 @@ Home Management App to aplikacja umożliwiająca zarządzanie zadaniami domowymi
 1.0.0
 
 ## Instrukcja instalacji i uruchomienia
-1. Skopiuj repozytorium na lokalny komputer:
+1.Otwórz Visual Studio 2022
+2.Wybierz Klonuj repozytorium
+3.W Lokalizacji repozytorium wklej:
     ```bash
-    git clone https://github.com/lavi9191/HomeManagementApp.git
+    https://github.com/lavi9191/HomeManagementApp.git
     ```
-2. Przejdź do katalogu projektu:
+4. Przejdź do Narzędzia -> Menedżer pakietów NuGet -> konsola menedżera pakietów i wpisz:
     ```bash
-    cd HomeManagementApp/HomeManagementApp
+    dotnet restore
     ```
 3. Przywróć pakiety NuGet:
     ```bash
@@ -25,12 +27,10 @@ Home Management App to aplikacja umożliwiająca zarządzanie zadaniami domowymi
     ```
 4. Uruchom migracje bazy danych:
     ```bash
-    dotnet ef database update
+    Update-Database
     ```
-5. Uruchom aplikację:
-    ```bash
-    dotnet run
-    ```
+5. Uruchom aplikację klikająć w Home ManagementApp
+   
 
 ## Struktura projektu
 Projekt składa się z kilku głównych modułów:
