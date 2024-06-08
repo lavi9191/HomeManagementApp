@@ -3,6 +3,7 @@ using HomeManagementApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace HomeManagementApp.Controllers
 {
@@ -10,17 +11,20 @@ namespace HomeManagementApp.Controllers
     public class ReminderController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ReminderController(ApplicationDbContext context)
+        public ReminderController(ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Reminder
         public async Task<IActionResult> Index()
         {
-            var reminders = await _context.Reminders.ToListAsync();
-            return View(reminders);
+            var userId = _userManager.GetUserId(User);
+            var reminders = _context.Reminders.Where(r => r.UserId == userId);
+            return View(await reminders.ToListAsync());
         }
 
         // GET: Reminder/Edit/5

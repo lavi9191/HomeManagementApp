@@ -49,7 +49,11 @@ namespace HomeManagementApp.Controllers
         // GET: HomeTask
         public async Task<IActionResult> Index()
         {
-            var tasks = _context.UserTasks.Include(t => t.AdminTask).Include(t => t.User);
+            var userId = _userManager.GetUserId(User);
+            var tasks = _context.UserTasks
+                                .Include(t => t.AdminTask)
+                                .Include(t => t.User)
+                                .Where(t => t.UserId == userId);
             return View(await tasks.ToListAsync());
         }
 
