@@ -31,6 +31,7 @@ Home Management App to aplikacja umożliwiająca zarządzanie zadaniami domowymi
 7. **Uruchom aplikację klikając w `HomeManagementApp`.**
    
 **Konta do testowania**
+
 **Admini:**
 **Login: admin@o2.pl**
 **Hasło: zaq1@WSX**
