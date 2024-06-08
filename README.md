@@ -18,10 +18,8 @@ Home Management App to aplikacja umożliwiająca zarządzanie zadaniami domowymi
     ```bash
     https://github.com/lavi9191/HomeManagementApp.git
     ```
-4. **Przejdź do Narzędzia -> Menedżer pakietów NuGet -> Konsola Menedżera Pakietów i wpisz:**
-    ```powershell
-    dotnet restore
-    ```
+4. **Przejdź do Narzędzia -> Menedżer pakietów NuGet -> Konsola Menedżera Pakietów**
+    
 5. **Przywróć pakiety NuGet:**
     ```powershell
     dotnet restore
