@@ -29,6 +29,24 @@ Home Management App to aplikacja umożliwiająca zarządzanie zadaniami domowymi
     Update-Database
     ```
 7. **Uruchom aplikację klikając w `HomeManagementApp`.**
+   
+**Konta do testowania**
+**Admini:**
+**Login: admin@o2.pl**
+**Hasło: zaq1@WSX**
+
+**Login: tata@o2.pl**
+**Hasło: zaq1@WSX**
+
+**Użytkownicy:**
+**Login: mama@o2.pl**
+**Hasło: zaq1@WSX**
+
+**Login: syn@o2.pl**
+**Hasło: zaq1@WSX**
+
+**Login: corka@o2.pl**
+**Hasło: zaq1@WSX**
 
 ## Struktura projektu
 Projekt składa się z kilku głównych modułów:
