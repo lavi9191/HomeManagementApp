@@ -26,9 +26,13 @@ Home Management App to aplikacja umożliwiająca zarządzanie zadaniami domowymi
     ```
 6. **Uruchom migracje bazy danych:**
     ```powershell
+    Add-Migration Start
+    ```
+7. Potem:   
+    ```powershell
     Update-Database
     ```
-7. **Uruchom aplikację klikając w `HomeManagementApp`.**
+8. **Uruchom aplikację klikając w `HomeManagementApp`.**
    
 **Konta do testowania:**
 
